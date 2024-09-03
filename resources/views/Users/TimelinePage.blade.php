@@ -34,7 +34,7 @@
                     {{-- timeline de gauche --}}
                     <div class="timeline">
                         <div class="timeline-icon">
-
+                            <i class="  fas fa-history "></i>
                         </div>
                         <div class="timeline-content">
                             <h2 class="titre">1919 Lorem ipsum dolor sit <br>amet consectetur.</h2>
@@ -60,7 +60,7 @@
                     {{-- timeline de droite --}}
                     <div class="timeline">
                         <div class="timeline-icon">
-
+                            <i class=" fas fa-hand-point-left"></i>
                         </div>
                         <div class="timeline-content  ">
                             <h2 class="titre">1919 Lorem ipsum dolor sit <br>amet consectetur.</h2>
@@ -79,7 +79,7 @@
 
                     <div class="timeline">
                         <div class="timeline-icon">
-
+                            <i class="fas fa-chevron-right"></i>
                         </div>
                         <div class="timeline-content droite ">
                             <h2 class="titre">1919 Lorem ipsum dolor sit <br>amet consectetur.</h2>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="timeline">
                         <div class="timeline-icon">
-
+                            <i class="fas fa-chevron-left"></i><i class="fas fa-chevron-right"></i>
                         </div>
                         <div class="timeline-content droite">
                             <h2 class="titre">1919 Lorem ipsum dolor sit <br>amet consectetur.</h2>

@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset ('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset ('css/AdminStyle.css') }}" rel="stylesheet">
 
 </head>
 <body id="page-top">
@@ -59,8 +60,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('button')}}">Structure</a>
-                        <a class="collapse-item" href="{{ route('button')}}">Statistiques</a>
+                        <a class="collapse-item" href="{{ route('structures')}}">Structure</a>
+                        <a class="collapse-item" href="{{ route('structures')}}">Statistiques</a>
                     </div>
                 </div>
             </li>
@@ -76,8 +77,8 @@
                 </a>
                 <div id="collapsewo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('button')}}">Utilisateurs</a>
-                        <a class="collapse-item" href="{{ route('button')}}">Statistiques</a>
+                        <a class="collapse-item" href="{{  route('structures')}}">Utilisateurs</a>
+                        <a class="collapse-item" href="{{  route('structures')}}">Statistiques</a>
                     </div>
                 </div>
             </li>
@@ -278,7 +279,7 @@
         </div>
     </div>
 
-    
+
 
     <!-- Bootstrap core JavaScript-->
     <script src=" {{ asset('vendor/jquery/jquery.min.js') }}"></script>
@@ -289,5 +290,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src=" {{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

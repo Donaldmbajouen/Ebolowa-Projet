@@ -152,7 +152,7 @@
             </div>
         </div>
     </div>
- 
+
     <div class="col-sm-6 col-lg-4 mb-4">
         <div class="card">
             <img src="{{ asset('img/UserImages/hotel1.png')}}" class="card-img-top" alt="...">
@@ -194,7 +194,7 @@
         <p class="text-muted ms-4">Paragraph of text beneath the heading to explain the heading.</p>
    </div>
    <div class="d-flex flex-column gap-2 mt-5">
-        <button class="btn btn-outline-warning btn-lg centered py-3 px-4"> En Savoir Plus</button>
+        <a href="{{route('reserver_une_visite')}}" class="btn btn-outline-warning btn-lg centered py-4 px-4"> En Savoir Plus</a>
     </div>
 </div>
 

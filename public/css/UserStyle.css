@@ -1,6 +1,7 @@
 body{
     padding: 0;
     margin: 0;
+    font-family: 'Roboto';
 
 }
 
@@ -24,6 +25,10 @@ body{
 }
 .nav-item a:hover{
     font-size: 22px;
+    text-decoration:underline;
+}
+.nav-item a:active{
+    font-size: 20px;
     text-decoration:underline;
 }
 .langue{
@@ -479,6 +484,74 @@ body{
     justify-content: center;
 
 }
-
+/* style de la page de reservation dune viste a un site touristique */
+.nav-item button{
+    font-family: system-ui;
+    font-size: 25px;
+    font-weight: 480;
+    color: black;
+}
+.information h2{
+    font-size: 40px;
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+.information h2 span {
+    color: rgba(255, 72, 0, 0.925);
+    font-size: 32px;
+    font-family: 'roboto';
+    font-weight: bold;
+    align-items: center;
+}
+.details{
+    font-family: 'roboto';
+    font-weight: 500;
+    align-items: center;
+}
+.details .title_details{
+    font-size: 30px;
+    color: rgba(255, 72, 0, 0.925);
+    align-items: center;
+    margin-right: 30px;
+}
+.details p{
+    font-family: 'roboto';
+}
+.header-form{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+.header-form h1{
+    font-weight: bold;
+    font-size: 100px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.book_div{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgba(17, 9, 44, 0.286);
+    color: black;
+}
+.book_div input{
+    border: none;
+    outline: none;
+}
+/* style de la partie Hotels */
+.Search_property input{
+    border: none;
+    outline: none;
+}
+.input_search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgba(17, 9, 44, 0.286);
+    color: black;
+}
 
 

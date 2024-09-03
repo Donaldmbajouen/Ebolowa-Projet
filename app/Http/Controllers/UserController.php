@@ -21,4 +21,7 @@ class UserController extends Controller
     public function historique(){
         return view ('Users/TimelinePage');
     }
+    public function Hotels(){
+        return view('Users/Hotels');
+    }
 }

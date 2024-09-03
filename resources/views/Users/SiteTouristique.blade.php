@@ -168,7 +168,7 @@
 
     </div>
     <div class="d-flex justify-content-center">
-        <button class="btn btn-outline-warning  btn-lg py-3 px-5"> Tout Afficher</button>
+        <a href="{{route('reserver_une_visite')}}" class="btn btn-outline-warning  btn-lg py-3 px-5"> En Savoir plus</a>
     </div><br>
 </div>
 

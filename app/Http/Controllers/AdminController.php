@@ -9,7 +9,10 @@ class AdminController extends Controller
     public function dashboard(){
         return view('Admin/dashboard');
     }
-    public function button(){
-        return view('Admin/buttons');
+    public function structures(){
+        return view('Admin/structures');
+    }
+    public function AjouterHotels(){
+        return view('Admin/AjoutHotel');
     }
 }

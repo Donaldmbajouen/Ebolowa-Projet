@@ -18,14 +18,17 @@ use App\Http\Controllers\UserController;
 
 // Routes de l'utilisateur simple
 
-Route::get('/', [UserController::class, 'main_user']);
-Route::get('/Site_touristique', [UserController::class, 'site_touristique']);
-Route::get('/Reserver_site_touristique', [UserController::class, 'reserver_site_touristique']);
-Route::get('/Historique', [UserController::class, 'historique']);
+Route::get('/', [UserController::class, 'main_user'])->name('accueil');
+Route::get('/Site_touristique', [UserController::class, 'site_touristique'])->name('site_touristique');
+Route::get('/Reserver_site_touristique', [UserController::class, 'reserver_site_touristique'])->name('reserver_une_visite');
+Route::get('/Historique', [UserController::class, 'historique'])->name('historique');
+Route::get('/Hotels', [UserController::class, 'Hotels'])->name('hotels');
+
 
 // Routes de l'Admin debut
 
 Route::get('/Admin', [AdminController::class, 'dashboard'])-> name('Admin');
-Route::get('/button', [AdminController::class, 'button'])-> name('button');
+Route::get('/structures', [AdminController::class, 'structures'])-> name('structures');
+Route::get('/AjouterHotels', [AdminController::class, 'AjouterHotels'])-> name('AjouterHotels');
 
 // fin routes de l'Admin
