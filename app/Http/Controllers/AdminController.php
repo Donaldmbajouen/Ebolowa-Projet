@@ -15,4 +15,6 @@ class AdminController extends Controller
     public function AjouterHotels(){
         return view('Admin/AjoutHotel');
     }
+
+
 }

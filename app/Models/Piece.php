@@ -12,7 +12,8 @@ class Piece extends Model
     protected $fillable=[
         'description',
         'price',
-        'name'
+        'type'
+//        'hotel_id'
     ];
 
     public function hotel(){

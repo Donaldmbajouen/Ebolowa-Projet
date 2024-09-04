@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('type');
-            $table->decimal('longitude', 10,8);
-            $table->decimal('lattitude', 10,8);
+            $table->string('image');
+            $table->string('longitude');
+            $table->string('lattitude');
             $table->unsignedBigInteger('gerant_id');
             $table->timestamps();
 

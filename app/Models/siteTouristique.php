@@ -12,7 +12,6 @@ class siteTouristique extends Model
     protected $fillable = [
         'name',
         'image',
-        'type',
         'description',
         'longitude',
         'lattitude'

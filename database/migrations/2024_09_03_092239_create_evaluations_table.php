@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('evaluationable_id');
             $table->string('evaluationable_type');
-            $table->enum('statut', ['activee', 'desactivée'])->default('activee');
+            $table->boolean('statut')->default(1);
             $table->timestamps();
 
 //            cle etrangere

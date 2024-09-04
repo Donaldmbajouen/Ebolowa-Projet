@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type');
             $table->string('image');
             $table->text('description');
-            $table->decimal('longitude', 10,8);
-            $table->decimal('lattitude', 10,8);
+            $table->integer('type')->nullable();
+            $table->string('longitude');
+            $table->string('lattitude');
             $table->timestamps();
             $table->unsignedBigInteger('gerant_id');
 

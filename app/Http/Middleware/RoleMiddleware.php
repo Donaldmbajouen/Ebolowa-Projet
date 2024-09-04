@@ -20,7 +20,7 @@ class RoleMiddleware
             return redirect('login'); // Rediriger vers la page de login si non authentifié
         }
 
-        // Vérifiez si l'utilisateur a le rôle requis
+        // Vérifiez si l'utilisateur a le rôle
 
         $role ='utilisateur';
         if (auth()->user()->role !== $role) {

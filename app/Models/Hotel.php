@@ -15,7 +15,8 @@ class Hotel extends Model
         'type',
         'description',
         'longitude',
-        'lattitude'
+        'lattitude',
+        'type'
         ];
 
     public function photos()
