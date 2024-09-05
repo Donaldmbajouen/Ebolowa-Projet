@@ -6,12 +6,15 @@ use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use function Nette\Utils\isEmpty;
 
 class UserAuthController extends Controller
 {
     public function register(Request $request)
     {
+        Log::info(json_encode($request->all()));
+
         $registerUserData = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',

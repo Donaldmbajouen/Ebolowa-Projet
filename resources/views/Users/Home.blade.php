@@ -7,11 +7,11 @@
     <img src="{{ asset('img/UserImages/nav-ebolowa.png') }}" style="height: 700px; " class="card-img" alt="...">
     <div class="card-img-overlay">
       <h5 class="card-title"><span style="border-bottom: 10px solid rgb(207, 107, 31); border-bottom-left-radius: 200px;">Ebolow</span>a: Un Trésor <br>caché au coeur du <br>Cameroun</h5>
-      <p class="card-text">Ebolowa, capitale du département de la Mvila, se dévoile comme un <br>
-        joyau caché au cœur du Cameroun, loin de l'agitation des grandes <br>
-        villes. Nichée dans un écrin de verdure luxuriante, cette cité paisible <br>
-        offre aux visiteurs un havre de paix et une immersion authentique<br> dans
-        la culture camerounaise.</p>
+{{--      <p class="card-text">Ebolowa, capitale du département de la Mvila, se dévoile comme un <br>--}}
+{{--        joyau caché au cœur du Cameroun, loin de l'agitation des grandes <br>--}}
+{{--        villes. Nichée dans un écrin de verdure luxuriante, cette cité paisible <br>--}}
+{{--        offre aux visiteurs un havre de paix et une immersion authentique<br> dans--}}
+{{--        la culture camerounaise.</p>--}}
     </div>
   </div>
 </div>

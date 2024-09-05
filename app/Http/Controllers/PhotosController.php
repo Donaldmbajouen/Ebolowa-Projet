@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
 use App\Models\Photo;
+use App\Models\siteTouristique;
 use Illuminate\Http\Request;
 
 class PhotosController extends Controller
@@ -58,5 +60,16 @@ class PhotosController extends Controller
         $photos = Photo::findOrFail($id);
         $photos->delete();
         return response()->json(['message' => 'photo supprimee avec success']);
+    }
+    public function upload($type){
+        if ($type == 'hotel'){
+            $photoable_type=Hotel::class;
+        }
+        elseif ($type == 'site-touristique'){
+            $photoable_type=siteTouristique::class;
+        }
+        echo($type);
+
+
     }
 }

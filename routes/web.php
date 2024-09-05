@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\WebControllers\WebUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,22 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Route de l'authentification
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+//route de l'authentification
+
+Route::post('register',[WebUserController::class,'register'])->name('register');
+Route::get('register',[WebUserController::class,'showregisterForm']);
+
+Route::post('login',[WebUserController::class,'login'])->name('login');
+Route::get('/login',[WebUserController::class,'showLoginForm']);
+
+Route::post('logout',[WebUserController::class,'logout'])
+    ->middleware('auth:sanctum');
 
 // Routes de l'utilisateur simple
 

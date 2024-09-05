@@ -32,8 +32,8 @@ Route::post('register',[UserAuthController::class,'register']);
 Route::post('login',[UserAuthController::class,'login']);
 Route::post('logout',[UserAuthController::class,'logout'])
 //    ->middleware([('role:' . UserRole::ADMIN), auth::sanctum]);
-    ->middleware(['auth:sanctum', 'role:' . UserRole::ADMIN]);
-//    ->middleware('auth:sanctum');
+//    ->middleware(['auth:sanctum', 'role:' . UserRole::ADMIN]);
+    ->middleware('auth:sanctum');
 
 
 //routes du crud users
@@ -86,4 +86,6 @@ Route::post('evaluations/create', [ EvaluationController::class, 'create']);
 Route::get('evaluations/{id}', [ EvaluationController::class, 'show']);
 Route::put('evaluations/{id}/update', [ EvaluationController::class, 'update']);
 Route::delete('evaluations/{id}', [ EvaluationController::class, 'destroy']);
+
+Route::post('/photo/{type}',[PhotosController::class, 'upload']);
 

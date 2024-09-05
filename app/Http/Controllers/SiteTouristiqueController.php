@@ -20,7 +20,7 @@ class SiteTouristiqueController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'name'=> 'required|string'PieceController
+            'name'=> 'required|string',
             'image' =>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description'=> 'required|string',
             'longitude'=> 'required|string',
