@@ -37,55 +37,61 @@ Route::post('logout',[UserAuthController::class,'logout'])
 
 
 //routes du crud users
+Route::group(['prefix'=>'admin', 'middleware' => 'admin_principal'], function() {
 
-Route::get('/users', [ UserController::class, 'index']);
-Route::post('users/create', [ UserController::class, 'create']);
-Route::get('users/{id}', [ UserController::class, 'show']);
-Route::put('users/{id}/update', [ UserController::class, 'update']);
-Route::delete('users/{id}', [ UserController::class, 'destroy']);
+
+    Route::get('/users', [UserController::class, 'index']);
+    Route::post('users/create', [UserController::class, 'create']);
+    Route::get('users/{id}', [UserController::class, 'show']);
+    Route::put('users/{id}/', [UserController::class, 'update']);
+    Route::delete('users/{id}', [UserController::class, 'destroy']);
+//filter des user pour le role admin secondaire
+    Route::get('/users', [UserController::class, 'index']);
+
 
 //routes de Hotel
 
-Route::get('/hotel', [HotelController::class, 'index']);
-Route::post('hotel/create', [HotelController::class, 'create']);
-Route::get('hotel/{id}', [HotelController::class, 'show']);
-Route::put('hotel/{id}/update', [HotelController::class, 'update']);
-Route::delete('hotel/{id}', [HotelController::class, 'destroy']);
+    Route::get('/hotel', [HotelController::class, 'index']);
+    Route::post('hotel/create', [HotelController::class, 'create']);
+    Route::get('hotel/{id}', [HotelController::class, 'show']);
+    Route::put('hotel/{id}/update', [HotelController::class, 'update']);
+    Route::delete('hotel/{id}', [HotelController::class, 'destroy']);
 
 
 //routes des pieces
 
-Route::get('/pieces', [PieceController::class, 'index']);
-Route::post('pieces/create', [PieceController::class, 'create']);
-Route::get('pieces/{id}', [PieceController::class, 'show']);
-Route::put('pieces/{id}/update', [PieceController::class, 'update']);
-Route::delete('pieces/{id}', [PieceController::class, 'destroy']);
+    Route::get('/pieces', [PieceController::class, 'index']);
+    Route::post('pieces/create', [PieceController::class, 'create']);
+    Route::get('pieces/{id}', [PieceController::class, 'show']);
+    Route::put('pieces/{id}/update', [PieceController::class, 'update']);
+    Route::delete('pieces/{id}', [PieceController::class, 'destroy']);
 
 
 //route du site touristique
 
-Route::get('/SiteTouristique', [SiteTouristiqueController::class, 'index']);
-Route::post('SiteTouristique/create', [SiteTouristiqueController::class, 'create']);
-Route::get('SiteTouristique/{id}', [SiteTouristiqueController::class, 'show']);
-Route::put('SiteTouristique/{id}/update', [SiteTouristiqueController::class, 'update']);
-Route::delete('SiteTouristique/{id}', [SiteTouristiqueController::class, 'destroy']);
+    Route::get('/SiteTouristique', [SiteTouristiqueController::class, 'index']);
+    Route::post('SiteTouristique/create', [SiteTouristiqueController::class, 'create']);
+    Route::get('SiteTouristique/{id}', [SiteTouristiqueController::class, 'show']);
+    Route::put('SiteTouristique/{id}/update', [SiteTouristiqueController::class, 'update']);
+    Route::delete('SiteTouristique/{id}', [SiteTouristiqueController::class, 'destroy']);
 
 
 //routes des photos
 
-Route::get('/photos', [PhotosController::class, 'index']);
-Route::post('photos/create', [PhotosController::class, 'create']);
-Route::get('photos/{id}', [PhotosController::class, 'show']);
-Route::put('photos/{id}/update', [PhotosController::class, 'update']);
-Route::delete('photos/{id}', [PhotosController::class, 'destroy']);
+    Route::get('/photos', [PhotosController::class, 'index']);
+    Route::post('photos/create', [PhotosController::class, 'create']);
+    Route::get('photos/{id}', [PhotosController::class, 'show']);
+    Route::put('photos/{id}/update', [PhotosController::class, 'update']);
+    Route::delete('photos/{id}', [PhotosController::class, 'destroy']);
 
 //routes des evaluations
 
-Route::get('/evaluations', [ EvaluationController::class, 'index']);
-Route::post('evaluations/create', [ EvaluationController::class, 'create']);
-Route::get('evaluations/{id}', [ EvaluationController::class, 'show']);
-Route::put('evaluations/{id}/update', [ EvaluationController::class, 'update']);
-Route::delete('evaluations/{id}', [ EvaluationController::class, 'destroy']);
+    Route::get('/evaluations', [EvaluationController::class, 'index']);
+    Route::post('evaluations/create', [EvaluationController::class, 'create']);
+    Route::get('evaluations/{id}', [EvaluationController::class, 'show']);
+    Route::put('evaluations/{id}/update', [EvaluationController::class, 'update']);
+    Route::delete('evaluations/{id}', [EvaluationController::class, 'destroy']);
 
-Route::post('/photo/{type}',[PhotosController::class, 'upload']);
-
+    Route::post('/photo/{type}', [PhotosController::class, 'upload']);
+});
+// pas de magiscule dans les url

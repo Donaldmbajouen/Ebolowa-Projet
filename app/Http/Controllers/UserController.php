@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class UserController extends Controller
     }
 
 
-    //crud user
+    //crud user Ok test
 
     public function index()
     {
@@ -42,22 +43,29 @@ class UserController extends Controller
             'name'=> 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string',
-            'role' => 'string',
+
+            'role' => 'nullable|in:' . implode(',', UserRole::all()), // Vérifie que le rôle est l'une des valeurs enum
             'phone_number' => 'required|string',
+            'statut' => 'boolean',
         ]);
 
         $statut_defaut=true;
+        $role_defaut="utilisateur";
 
         $users = new User();
         $users->name = $request->name;
-        $users->role = $request->role;
+//        $users->role = $validatedata['role'];
+//        $users->role = $request->role;
 
-        $statut = empty($validatedata['statut'])? $statut_defaut:$request->statut;
+        $statut = empty($request->statut)? $statut_defaut:$validatedata['statut'];
+        $role = empty($request->role)? $role_defaut:$validatedata['role'];
 
         $users->statut = $statut;
+        $users->role = $role;
         $users->phone_number = $request->phone_number;
         $users->email = $request->email;
-        $users->password = $request->password;
+        $users->password = Hash::make($validatedata['password']);
+
         $users->save();
 
         return response()->json([
@@ -74,13 +82,12 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'statut'=> 'required|boolean',
+        $validatedata = $request->validate([
             'name'=> 'required|string',
-            'email' => 'required|integer|email|unique',
-            'password' => 'required|string',
-            'role' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'role' => 'nullable|in:' . implode(',', UserRole::all()), // Vérifie que le rôle est l'une des valeurs enum
             'phone_number' => 'required|string',
+            'statut' => 'boolean',
         ]);
 
         $users = User::findOrFail($id);

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('type')->nullable();
             $table->string('longitude');
             $table->string('lattitude');
+            $table->boolean('statut');
             $table->timestamps();
             $table->unsignedBigInteger('gerant_id');
 

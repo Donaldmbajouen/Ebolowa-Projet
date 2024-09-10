@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Hotel extends Model
 {
@@ -16,7 +17,8 @@ class Hotel extends Model
         'description',
         'longitude',
         'lattitude',
-        'type'
+        'type',
+        'statut'
         ];
 
     public function photos()
@@ -25,5 +27,9 @@ class Hotel extends Model
     }
     public function pieces(){
         return $this->hasMany(Piece::class);
+    }
+    //fonction pour le stockage de l'image
+    public function ImageUrl(){
+        return Storage::disk('public')->url($this->image);
     }
 }

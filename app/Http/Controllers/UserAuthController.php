@@ -7,19 +7,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 use function Nette\Utils\isEmpty;
 
 class UserAuthController extends Controller
 {
     public function register(Request $request)
     {
-        Log::info(json_encode($request->all()));
+//        Log::info(json_encode($request->all()));
 
         $registerUserData = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'phone_number' => 'required|integer',
-            'password' => 'required|min:8',
+            'password' => 'required|min:5',
             'role' => 'nullable|in:' . implode(',', UserRole::all()), // Vérifie que le rôle est l'une des valeurs enum
         ]);
         $user = User::create([
@@ -39,7 +40,7 @@ class UserAuthController extends Controller
     {
         $loginUserData = $request->validate([
             'email' => 'required|string|email',
-            'password' => 'required|min:8'
+            'password' => 'required|min:5'
         ]);
         $user = User::where('email', $loginUserData['email'])->first();
         if (!$user || !Hash::check($loginUserData['password'], $user->password)) {
@@ -50,6 +51,7 @@ class UserAuthController extends Controller
         $token = $user->createToken($user->name . '-AuthToken')->plainTextToken;
         return response()->json([
             'access_token' => $token,
+            'user' => $user,
         ]);
     }
 
@@ -66,22 +68,4 @@ class UserAuthController extends Controller
     }
 }
 
-
-//ici cest le logout en fonction du role donc uniquement les admins peuvent se logout
-
-//    public function logout(Request $request)
-//    {
-//        // Vérifiez que l'utilisateur est authentifié
-//        if ($request->user() && $request->user()->role === UserRole::ADMIN) {
-//            // Supprimez les tokens de l'utilisateur
-//            $request->user()->tokens()->delete();
-//            return response()->json([
-//                'message' => 'Déconnecté avec succès.',
-//            ]);
-//        }
-//
-//        // Si l'utilisateur n'est pas admin ou n'est pas connecté
-//        return response()->json(['message' => 'Accès non autorisé.'], 403);
-//    }
-//}
 
