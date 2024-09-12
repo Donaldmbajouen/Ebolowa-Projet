@@ -13,16 +13,18 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotel = new Hotel();
-        $hotel->statut =1;
-        if ($hotel->statut){
-            return response()->json([$hotel::all()]);
-        }
-        else{
-            return response()->json([
-                'message' => "pas d'hotels disponible"
-            ]);
-        }
+        $hotels = Hotel::all();
+        return response()->json($hotels);
+//        $hotels = new Hotel();
+//        $hotels->statut =1;
+//        if ($hotels->statut){
+//            return response()->json($hotels::all());//, 'hotels'=>$hotels
+//        }
+//        else{
+//            return response()->json([
+//                'message' => "pas d'hotels disponible"
+//            ]);
+
 
 //        return response()->json($hotel);
     }
@@ -40,6 +42,7 @@ class HotelController extends Controller
         'gerant_id' => 'required|exists:users,id',
             'statut' => 'boolean'
         ]);
+//        return 'vddddd';
 
         // si l'image entree par l'utilisateur ne repecte pas es conditions de la validation, ne pas l'enregistrer dans le storage
         $image = $ImageValidate['image'];
@@ -57,12 +60,14 @@ class HotelController extends Controller
         $hotel->gerant_id = $request->gerant_id;
         $hotel->statut = $ImageValidate['statut'];
         $hotel->save();
-
+        return(response()->json());
+//        'image_url' => Storage::url('images/' . $imagePath);
         //statut de l'hotel activee ou desactivee
 
-        return response()->json([
-            'message' => 'Hotel ajoute avec succes',
-        ]);
+//        return response()->json([
+//            'message' => 'Hotel ajoute avec succes',
+//            'image_url' => Storage::url('images/hotels' . $imagePath),
+//        ]);
 
     }
 
@@ -91,7 +96,7 @@ class HotelController extends Controller
             'description'=> 'required|string',
             'longitude'=> 'required|string',
             'lattitude' => 'required|string',
-            'gerant_id' => 'required|exists:users,id'
+            'gerant_id' => 'required' //|exists:users,id'
         ]);
         $image = $request->validate('image');
         if ( !$image->getError() ){
@@ -114,6 +119,7 @@ class HotelController extends Controller
     {
         $hotel = Hotel::findOrFail($id);
          $hotel->statut = 0;
+//         dd($hotel->statut);
 //        $hotel->delete();
         return response()->json(['message' => 'Hotel supprimee avec success']);
     }

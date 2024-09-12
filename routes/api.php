@@ -37,7 +37,7 @@ Route::post('logout',[UserAuthController::class,'logout'])
 
 
 //routes du crud users
-Route::group(['prefix'=>'admin', 'middleware' => 'admin_principal'], function() {
+Route::group(['prefix'=>'admin'], function() {//, 'middleware' => 'admin_principal'
 
 
     Route::get('/users', [UserController::class, 'index']);
@@ -46,7 +46,7 @@ Route::group(['prefix'=>'admin', 'middleware' => 'admin_principal'], function() 
     Route::put('users/{id}/', [UserController::class, 'update']);
     Route::delete('users/{id}', [UserController::class, 'destroy']);
 //filter des user pour le role admin secondaire
-    Route::get('/users', [UserController::class, 'index']);
+    Route::get('user/filtre', [UserController::class, 'usefiltre']);
 
 
 //routes de Hotel
