@@ -60,6 +60,7 @@ class PieceController extends Controller
     {
         $piece = Piece::findOrFail($id);
         $piece->delete();
+
         return response()->json(['message' => 'piece supprimee avec success']);
     }
 
